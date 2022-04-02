@@ -23,6 +23,7 @@ class DoublyLinkedList:
              self.tail.next = node  # if list is not empty, (head/tail same for first value,so we use tail so that later tail is updated for every value)
              node.prev = self.head  # new node's previous , linked list head updated here
              self.tail = node       # tail would be new node 
+             self.size +=1 
     
     # this function is for printing the linked list. !important, we are here to learn ds algo        self.size+= 1  
     def __str__(self):
