@@ -25,7 +25,7 @@ class DoublyLinkedList:
              self.tail = node       # tail would be new node 
              self.size +=1 
     
-    # this function is for printing the linked list. !important, we are here to learn ds algo        self.size+= 1  
+    # this function is for printing the linked list. !important, we are here to learn ds algo          
     def __str__(self):
         vals = []
         node = self.head 
