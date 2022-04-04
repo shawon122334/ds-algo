@@ -27,17 +27,17 @@ class DoublyLinkedList:
 
 
 
-    # (1  2  3) remove 2. update 1's next is 3 and 3's prev is 1
+    # (1  2  3 4 5) remove 3. update 2's next is 4 and 4's prev is 2
     def __remove_node(self,node):
         if node.prev is None:
             self.head = node.next       # if we are in head and if we remove it, we update the head 
         else :
-            node.prev.next = node.next  # changed the prev node's node.next pointer (updated the next element) 1's next is 3
+            node.prev.next = node.next  # changed the prev node's node.next pointer (updated the next element) 2's next is 4
         
         if node.next is None:
             self.tail = node.prev       # if we are in tail and if we remove it, we update the tail 
         else:
-            node.next.prev = node.prev  # changed the next node's node.prev pointer (updated prev element)
+            node.next.prev = node.prev  # changed the next node's node.prev pointer (updated prev element) 4's prev is 2
         self.size -=1
 
     def remove(self,value):
