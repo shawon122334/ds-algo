@@ -20,10 +20,33 @@ class DoublyLinkedList:
              self.size += 1 
              # when there is only one value, that will be head and tail 
          else:
-             self.tail.next = node  # if list is not empty, (head/tail same for first value,so we use tail so that later tail is updated for every value)
-             node.prev = self.head  # new node's previous , linked list head updated here
-             self.tail = node       # tail would be new node 
+             self.tail.next = node      # if list is not empty, (head/tail same for first value,so we use tail so that later tail is updated for every value)
+             node.prev = self.tail      # we have to say what is the previous value of the node 
+             self.tail = node           # tail would be new node 
              self.size +=1 
+
+
+
+    # (1  2  3) remove 2. update 1's next is 3 and 3's prev is 1
+    def __remove_node(self,node):
+        if node.prev is None:
+            self.head = node.next       # if we are in head and if we remove it, we update the head 
+        else :
+            node.prev.next = node.next  # changed the prev node's node.next pointer (updated the next element) 1's next is 3
+        
+        if node.next is None:
+            self.tail = node.prev       # if we are in tail and if we remove it, we update the tail 
+        else:
+            node.next.prev = node.prev  # changed the next node's node.prev pointer (updated prev element)
+        self.size -=1
+
+    def remove(self,value):
+        node = self.head                #temporary node is self.head,we will search the value from the head
+        while node is not None:
+            if node.val==value:
+                self.__remove_node(node)
+                break
+            node = node.next 
     
     # this function is for printing the linked list. !important, we are here to learn ds algo          
     def __str__(self):
@@ -39,5 +62,12 @@ my_list.add(1)
 my_list.add(2)
 my_list.add(3)
 my_list.add(4)
+my_list.add(4)
+
 
 print(my_list)
+print('size : ',my_list.size)
+
+my_list.remove(4)
+print(my_list)
+print('size : ',my_list.size)
